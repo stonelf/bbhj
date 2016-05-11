@@ -38,3 +38,5 @@ config/config_global_default.php
 config/config_ucenter_default.php
 
 config/config_ucenter.php
+
+*.prefs
