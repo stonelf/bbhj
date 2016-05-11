@@ -1,0 +1,45 @@
+<!--{template common/header}-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+<div id="pt" class="bm cl">
+	<div class="z">
+		<a href="./" class="nvhm" title="{lang homepage}">$_G[setting][bbname]</a> <em>&rsaquo;</em>
+		{lang mpage_baidu_map:pt}
+	</div>
+</div>
+<style type="text/css">
+#ct { position: relative; }
+#srch { position: absolute; top: 10px; left: 100px; z-index: 100; border: 1px solid #cdcdcd; background: #f3f3f3; padding: 3px; }
+</style>
+<div id="ct" class="wp cl">
+	<div id="srch">
+		<input type="text" class="px vm" id="keyword" /><button type="button" class="pn pnp vm" onclick="search()"><strong>ËÑË÷</strong></button>
+	</div>
+	<div id="baidu_map" class="bm" style="width: 958px; height: {$map_height}px;"></div>
+</div>
+<script type="text/javascript">
+	var map = new BMap.Map("baidu_map");
+	map.addControl(new BMap.NavigationControl());
+	map.addControl(new BMap.ScaleControl());
+	map.addControl(new BMap.OverviewMapControl());    
+	map.addControl(new BMap.MapTypeControl());  
+	<!--{if $map_center}-->
+	map.centerAndZoom(new BMap.Point($map_center), $map_zoom);
+	<!--{else}-->
+	var myCity = new BMap.LocalCity();
+	myCity.get(function(result) {
+		map.centerAndZoom(result.name, $map_zoom);
+	});
+	<!--{/if}-->
+	var local = new BMap.LocalSearch(map, {
+		renderOptions: {
+			map: map,
+			autoViewport: true,
+			selectFirstResult: false
+		}
+	});
+	function search() {
+		local.clearResults();
+		local.search($('keyword').value);
+	}
+</script>
+<!--{template common/footer}-->
