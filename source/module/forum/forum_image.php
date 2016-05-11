@@ -42,6 +42,7 @@ if($attach = C::t('forum_attachment_n')->fetch('aid:'.$daid, $daid, array(1, -1)
 	} else {
 		$filename = $_G['setting']['attachdir'].'forum/'.$attach['attachment'];
 	}
+	/*
 	require_once libfile('class/image');
 	$img = new image;
 	if($img->Thumb($filename, $thumbfile, $w, $h, $type)) {
@@ -56,6 +57,9 @@ if($attach = C::t('forum_attachment_n')->fetch('aid:'.$daid, $daid, array(1, -1)
 		dheader('Content-Type: image');
 		@readfile($filename);
 	}
+	*/
+	dheader('location: '.'http://baobei-10016990.image.myqcloud.com/forum/'.$attach['attachment']."?imageView2/2/w/".$w."/h/".$h."/format/jpg/q/75");
+	
 }
 
 ?>
