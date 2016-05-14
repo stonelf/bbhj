@@ -151,7 +151,7 @@
 	.plc .pi .message img,.plc .pi .img_one img { margin:0px 4px 0px 0; max-width:95%; max-height:640px; }
 	.plc .pi .message .quote{ padding:10px 10px 7px 11px; margin:5px 0; border:1px dashed #D7D7D7; font-size:12px; }
 	.plc .pi .img_list { margin:4px auto; }	
-	.plc .pi .img_list li { float:left; width:83px; height:83px; margin:0 4px 4px; text-align:center;vertical-align: middle; line-height:83px; }
+	.plc .pi .img_list li { width:95%; margin:0 4px 4px; text-align:center;vertical-align: middle; line-height:83px; }
 	.plc .pi .img_list li a { display:block;}
 	
 	.manage { margin:4px -10px 0 0; position:absolute; top:38px; right:5px; height:50px; }
