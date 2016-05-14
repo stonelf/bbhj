@@ -59,7 +59,7 @@ if($attach = C::t('forum_attachment_n')->fetch('aid:'.$daid, $daid, array(1, -1)
 	}
 	*/
 //	dheader('location: '.'http://baobei-10016990.image.myqcloud.com/forum/'.$attach['attachment']."?imageView2/2/w/".$w."/h/".$h."/format/jpg/q/75");
-	dheader('location: '.'http://baobei-10016990.image.myqcloud.com/forum/'.$attach['attachment']."?imageView2/2/w/640/h/640/format/jpg/q/75");
+	dheader('location: '.'http://youtu.baobeihuijia.com/forum/'.$attach['attachment']."?imageView2/2/w/640/h/640/format/jpg/q/75");
 	
 }
 
