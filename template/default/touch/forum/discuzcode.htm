@@ -90,7 +90,9 @@ global $_G, $post;
 $fix = count($post[imagelist]) == 1 ? 140 : 83;
 $fixtype = count($post[imagelist]) == 1 ? 'fixnone' : 'fixwr';
 $attach['refcheck'] = (!$attach['remote'] && $_G['setting']['attachrefcheck']) || ($attach['remote'] && ($_G['setting']['ftp']['hideurl'] || ($attach['isimage'] && $_G['setting']['attachimgpost'] && strtolower(substr($_G['setting']['ftp']['attachurl'], 0, 3)) == 'ftp')));
-$mobilethumburl = $attach['attachimg'] && $_G['setting']['showimages'] && (!$attach['price'] || $attach['payed']) && ($_G['group']['allowgetimage'] || $_G['uid'] == $attach['uid']) ? getforumimg($attach['aid'], 0, $fix, $fix, $fixtype) : '' ;
+
+//$mobilethumburl = $attach['attachimg'] && $_G['setting']['showimages'] && (!$attach['price'] || $attach['payed']) && ($_G['group']['allowgetimage'] || $_G['uid'] == $attach['uid']) ? getforumimg($attach['aid'], 0, $fix, $fix, $fixtype) : '' ;
+$mobilethumburl='http://baobei-10016990.image.myqcloud.com/forum/'.$attach['attachment'];
 $aidencode = packaids($attach);
 $is_archive = $_G['forum_thread']['is_archived'] ? "&fid=".$_G['fid']."&archiveid=".$_G[forum_thread][archiveid] : '';
 }
@@ -98,7 +100,11 @@ $is_archive = $_G['forum_thread']['is_archived'] ? "&fid=".$_G['fid']."&archivei
 	<!--{if $attach['attachimg'] && $_G['setting']['showimages'] && ($_G['group']['allowgetimage'] || $_G['uid'] == $attach['uid']) && (!$attach['price'] || $attach['payed'])}-->
 			<!--{if !$attach['price'] || $attach['payed']}-->
 				<!--{if $_G['setting']['mobile']['mobilesimpletype'] == 0}-->
-				<li><a href="forum.php?mod=viewthread&tid=$attach[tid]&aid=$attach[aid]&from=album&page=$_G[page]" class="orange"><img id="aimg_$attach[aid]" src="$mobilethumburl" alt="$attach[imgalt]" title="$attach[imgalt]" /></a>
+				<li>
+					<a href="$mobilethumburl" class="orange" title="pos-1">
+					<!--qqq<a href="forum.php?mod=viewthread&tid=$attach[tid]&aid=$attach[aid]&from=album&page=$_G[page]" class="orange">-->
+						<img id="aimg_$attach[aid]" src="$mobilethumburl" alt="$attach[imgalt]" title="$attach[imgalt]" />
+					</a>
 				</li>
 				<!--{/if}-->
 			<!--{/if}-->
@@ -111,14 +117,20 @@ $is_archive = $_G['forum_thread']['is_archived'] ? "&fid=".$_G['fid']."&archivei
 function attachinpost($attach) {
 global $_G;
 $attach['refcheck'] = (!$attach['remote'] && $_G['setting']['attachrefcheck']) || ($attach['remote'] && ($_G['setting']['ftp']['hideurl'] || ($attach['isimage'] && $_G['setting']['attachimgpost'] && strtolower(substr($_G['setting']['ftp']['attachurl'], 0, 3)) == 'ftp')));
-$mobilethumburl = $attach['attachimg'] && $_G['setting']['showimages'] && (!$attach['price'] || $attach['payed']) && ($_G['group']['allowgetimage'] || $_G['uid'] == $attach['uid']) ? getforumimg($attach['aid'], 0, 140, 140, 'fixnone') : '' ;
+
+/* $mobilethumburl = $attach['attachimg'] && $_G['setting']['showimages'] && (!$attach['price'] || $attach['payed']) && ($_G['group']['allowgetimage'] || $_G['uid'] == $attach['uid']) ? getforumimg($attach['aid'], 0, 140, 140, 'fixnone') : '' ;  */
+$mobilethumburl='http://baobei-10016990.image.myqcloud.com/forum/'.$attach['attachment'];
 $aidencode = packaids($attach);
 $is_archive = $_G['forum_thread']['is_archived'] ? '&fid='.$_G['fid'].'&archiveid='.$_G[forum_thread][archiveid] : '';
 }
 <!--{block return}-->
 	<!--{if $attach['attachimg'] && $_G['setting']['showimages'] && (!$attach['price'] || $attach['payed']) && ($_G['group']['allowgetimage'] || $_G['uid'] == $attach['uid'])}-->
 		<!--{if $_G['setting']['mobile']['mobilesimpletype'] == 0}-->
-		<a href="forum.php?mod=viewthread&tid=$attach[tid]&aid=$attach[aid]&from=album&page=$_G[page]" class="orange"><img id="aimg_$attach[aid]" src="$mobilethumburl" alt="$attach[imgalt]" title="$attach[imgalt]" /></a>
+		<a href="$mobilethumburl" class="orange" title="pos-2">
+			
+		<!--qqq<a href="forum.php?mod=viewthread&tid=$attach[tid]&aid=$attach[aid]&from=album&page=$_G[page]" class="orange">-->
+			<img id="aimg_$attach[aid]" src="$mobilethumburl" alt="$attach[imgalt]" title="$attach[imgalt]" />
+		</a>
 		<!--{/if}-->
 	<!--{else}-->
 		<!--{if !$attach['price'] || $attach['payed']}-->
