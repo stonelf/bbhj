@@ -132,8 +132,13 @@ class discuz_database {
 			}
 		}
 		self::checkquery($sql);
-
+//qqq
+		$t=time();
 		$ret = self::$db->query($sql, $silent, $unbuffered);
+		$t=time()-$t;
+		if($t>0){
+			error_log("\n".date("Y-m-d H:i:s",time())." query time:".$t,3,'querytime.log');
+		}
 		if (!$unbuffered && $ret) {
 			$cmd = trim(strtoupper(substr($sql, 0, strpos($sql, ' '))));
 			if ($cmd === 'SELECT') {
