@@ -70,6 +70,8 @@ class discuz_memory extends discuz_base
 	public function get($key, $prefix = '') {
 		static $getmulti = null;
 		$ret = false;
+		//qqq
+		$t=time();
 		if($this->enable) {
 			if(!isset($getmulti)) $getmulti = method_exists($this->memory, 'getMulti');
 			$this->userprefix = $prefix;
@@ -97,6 +99,11 @@ class discuz_memory extends discuz_base
 				$ret = $this->memory->get($this->_key($key));
 				if(!isset($ret)) $ret = false;
 			}
+		}
+		//qqq
+		$t=time()-$t;
+		if($t>0){
+			error_log("\n".date("Y-m-d H:i:s",time())." cacheread time:".$t,3,'cachereadtime.log');
 		}
 		return $ret;
 	}
