@@ -40,3 +40,5 @@ config/config_ucenter_default.php
 config/config_ucenter.php
 
 *.prefs
+
+*.txt

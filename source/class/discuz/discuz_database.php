@@ -136,8 +136,8 @@ class discuz_database {
 		$t=time();
 		$ret = self::$db->query($sql, $silent, $unbuffered);
 		$t=time()-$t;
-		if($t>0){
-			error_log("\n".date("Y-m-d H:i:s",time())." query time:".$t,3,'querytime.log');
+		if($t>1){
+			error_log(date("Y-m-d H:i:s",time())." query time:".$t."\n",3,'querytime.log');
 		}
 		if (!$unbuffered && $ret) {
 			$cmd = trim(strtoupper(substr($sql, 0, strpos($sql, ' '))));

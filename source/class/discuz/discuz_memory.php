@@ -102,8 +102,8 @@ class discuz_memory extends discuz_base
 		}
 		//qqq
 		$t=time()-$t;
-		if($t>0){
-			error_log("\n".date("Y-m-d H:i:s",time())." cacheread time:".$t,3,'cachereadtime.log');
+		if($t>1){
+			error_log(date("Y-m-d H:i:s",time())." cacheread time:".$t."\n",3,'cachereadtime.log');
 		}
 		return $ret;
 	}
