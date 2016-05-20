@@ -143,8 +143,11 @@ SWFUpload.prototype.initSettings = function (userSettings) {
 	this.ensureDefault("file_upload_limit", 0);
 	this.ensureDefault("file_queue_limit", 0);
 
-	this.ensureDefault("flash_url", IMGDIR+"/swfupload.swf");
-	this.ensureDefault("flash9_url", IMGDIR+"/swfupload.swf");
+//	this.ensureDefault("flash_url", IMGDIR+"/swfupload.swf");
+//	this.ensureDefault("flash9_url", IMGDIR+"/swfupload.swf");
+//qqq 据说要有可能弹不出对附件上传话框，要改成下面的样子，实际未发现异常。
+	this.ensureDefault("flash_url", "/static/image/common/swfupload.swf");
+	this.ensureDefault("flash9_url", "/static/image/common/swfupload.swf");
 	this.ensureDefault("prevent_swf_caching", true);
 
 	this.ensureDefault("button_image_url", "");

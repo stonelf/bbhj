@@ -42,3 +42,11 @@ config/config_ucenter.php
 *.prefs
 
 *.txt
+
+*.cmd
+
+*.log
+
+*.list
+
+sync/transfer_log
